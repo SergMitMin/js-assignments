@@ -55,7 +55,6 @@ function getFizzBuzz(num) {
  *   10 => 3628800
  */
 function getFactorial(n) {
-
     return (n != 1) ? n * getFactorial(n - 1) : 1;
 }
 
@@ -73,7 +72,11 @@ function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 function getSumBetweenNumbers(n1, n2) {
-    throw new Error('Not implemented');
+    let sum = 0;
+    for (let i = n1; i <= n2; i++) {
+        sum += i;
+    }
+    return sum;
 }
 
 
@@ -92,9 +95,12 @@ function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 function isTriangle(a, b, c) {
-    throw new Error('Not implemented');
+    if (a + b > c && a + c > b && b + c > a) {
+        return true;
+    } else {
+        return false;
+    }
 }
-
 
 /**
  * Returns true, if two specified axis-aligned rectangles overlap, otherwise false.
@@ -176,7 +182,13 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-    throw new Error('Not implemented');
+    for (var i = 0; i < str.length; i++) {
+        var c = str.charAt(i);
+        if (str.indexOf(c) == i && str.indexOf(c, i + 1) == -1) {
+            return c;
+        }
+    }
+    return null;
 }
 
 
@@ -306,8 +318,33 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true 
  */
 function isBracketsBalanced(str) {
-    throw new Error('Not implemented');
-}
+    let open = ['[', '{', '(', '<'];
+    let close = [']', '}', ')', '>'];
+
+    // for (let i = 0; i < bracketsConfig.length; i++) {
+    //     // open[i] = bracketsConfig[i][0];
+    //     // close[i] = bracketsConfig[i][1];
+    // }
+
+    let arr = str.split('');
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let index in open) {
+            if (arr[i] == open[index]) {
+                if (arr[i + 1] == close[index]) {
+                    arr.splice(i, 2);
+                    console.log(arr);
+                    i -= i + 1;
+                }
+            }
+        }
+    }
+    if (arr.length !== 0) {
+        return false;
+    } else {
+        return true;
+    }
+};
 
 
 /**
