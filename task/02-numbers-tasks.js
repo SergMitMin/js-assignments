@@ -250,12 +250,13 @@ function isPrime(n) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-    let num = parseInt(value);
-    if (typeof num === 'number' && num != NaN) {
-        return num;
-    } else {
-        return def;
-    }
+    // let num = parseInt(value);
+    // if (typeof num === 'number' && num != NaN) {
+    //     return num;
+    // } else {
+    //     return def;
+    // }
+    throw new Error('Not implemented');
 }
 
 module.exports = {
