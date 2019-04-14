@@ -273,13 +273,14 @@ function getMovingSum(arr) {
  * [ "a" ] => []
  */
 function getSecondItems(arr) {
-   let newArr = [];
-   arr.reduce(function (a, i) {
-      if (i % 2 === 0) {
-         return newArr[i] = a;
-      }
-   }, 0)
-   return newArr;
+   // let newArr = [];
+   // arr.reduce(function (a, i) {
+   //    if (i % 2 === 0) {
+   //       return newArr[i] = a;
+   //    }
+   // }, 0)
+   // return newArr;
+   throw new Error('Not implemented');
 }
 
 
@@ -401,7 +402,10 @@ function getFalsyValuesCount(arr) {
  *    [ true, 0, 1, 'true' ], true => 1
  */
 function findAllOccurences(arr, item) {
-   throw new Error('Not implemented');
+   var count = arr.reduce(function (n, val) {
+      return n + (val === item);
+   }, 0);
+   return count;
 }
 
 /**
@@ -499,7 +503,8 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
+   let unique = [...new Set(arr)];
+   return unique;
 }
 
 /**
