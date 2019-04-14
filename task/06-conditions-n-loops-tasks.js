@@ -231,10 +231,14 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 function reverseString(str) {
-    throw new Error('Not implemented');
+    let items = str.split(' ');
+    let reversedItems = [];
+    for (let i = 0; i < items.length; i++) {
+        reversedItems.unshift(items[i].split('').reverse().join(''));
+    }
+    return reversedItems.join(' ');
+
 }
-
-
 /**
  * Reverse the specified integer number (put all digits in reverse order)
  *
